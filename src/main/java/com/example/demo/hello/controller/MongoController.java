@@ -6,7 +6,6 @@ import com.example.demo.redisTest.util.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -26,7 +25,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/api/v1")
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class MongoController {
 
     private final Logger log = LoggerFactory.getLogger(MongoController.class);

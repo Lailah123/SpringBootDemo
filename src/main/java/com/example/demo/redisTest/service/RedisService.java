@@ -22,8 +22,7 @@ public class RedisService {
 //    @Cacheable(cacheNames = "selectUser",key = "#id")
     public List<User> queryUser(Integer id) {
         log.info("直接查询,id为{}",id);
-        List<User> users = redisDao.queryUser(id);
-        return users;
+        return redisDao.queryUser(id);
     }
     //自定义注解，方法返回前
     @Log

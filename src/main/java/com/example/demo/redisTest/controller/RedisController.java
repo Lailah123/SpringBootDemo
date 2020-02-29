@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/v1/redis")
 @RestController
+@RequestMapping("/v1/redis")
 public class RedisController {
     private static Logger log = LoggerFactory.getLogger(RedisController.class);
     @Autowired

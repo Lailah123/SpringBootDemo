@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
@@ -17,6 +17,7 @@ import javax.jms.Destination;
 @EnableCaching
 @EnableScheduling // 开启定时任务功能
 //@ComponentScan
+//@ComponentScan(basePackages = "com.example.demo.*")
 public class DemoApplication {
     private static Logger log = LoggerFactory.getLogger(DemoApplication.class);
     public static void main(String[] args) {
