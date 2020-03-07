@@ -4,7 +4,6 @@ import com.example.demo.redisTest.bean.User;
 import com.example.demo.redisTest.service.RedisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +16,12 @@ import java.util.Map;
 @RequestMapping("/v1/redis")
 public class RedisController {
     private static Logger log = LoggerFactory.getLogger(RedisController.class);
-    @Autowired
+    final
     RedisService redisService;
+
+    public RedisController(RedisService redisService) {
+        this.redisService = redisService;
+    }
 
     @RequestMapping(value = "/queryUser",method= RequestMethod.POST)
     public List<User> queryUser(@RequestBody Map<String,Integer> parame) {

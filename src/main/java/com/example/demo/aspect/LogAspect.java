@@ -17,12 +17,12 @@ public class LogAspect {
 
     @Before("annotationPointCut()")
     public void before(JoinPoint joinPoint){
-        System.out.println("调用前拦截");
+//        System.out.println("调用前拦截");
     }
 
     @After("annotationPointCut()")
     public void after(JoinPoint joinPoint){
-        System.out.println("调用后拦截");
+//        System.out.println("调用后拦截");
     }
 
     @AfterReturning(value = "@annotation(com.example.demo.annotation.Log)",returning = "ret")

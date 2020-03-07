@@ -3,9 +3,9 @@ package com.example.demo.redisTest.service;
 import com.example.demo.annotation.Log;
 import com.example.demo.redisTest.bean.User;
 import com.example.demo.redisTest.dao.RedisDao;
+import com.example.demo.redisTest.dao.RedisJpaDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +14,17 @@ import java.util.Map;
 @Service
 public class RedisService {
     private final Logger log = LoggerFactory.getLogger(RedisService.class);
-    @Autowired
+    final
     RedisDao redisDao;
+    final
+    RedisJpaDao redisJpaDao;
 
-//    @Cacheable(cacheNames="userList", key="123")
+    public RedisService(RedisDao redisDao, RedisJpaDao redisJpaDao) {
+        this.redisDao = redisDao;
+        this.redisJpaDao = redisJpaDao;
+    }
+
+    //    @Cacheable(cacheNames="userList", key="123")
 //    可能会更新的数据不能用缓存
 //    @Cacheable(cacheNames = "selectUser",key = "#id")
     public List<User> queryUser(Integer id) {
@@ -44,8 +51,10 @@ public class RedisService {
         redisDao.insertUser(name, passWord);
     }
 
+    @Log
     public void deleteUser(Integer id) {
-        redisDao.deleteUser(id);
+//        redisDao.deleteUser(id);
+        redisJpaDao.deleteById(id);
     }
 
     public void editUser(String name, String passWord,Integer id) {
