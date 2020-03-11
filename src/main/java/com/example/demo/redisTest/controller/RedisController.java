@@ -35,6 +35,15 @@ public class RedisController {
         return count;
     }
 
+    /**
+     * 获取全部记录
+     * @return
+     */
+    @RequestMapping(value = "/queryAll")
+    public List<com.example.demo.redisTest.entity.User> queryAll(){
+        return redisService.queryAll();
+    }
+
     @RequestMapping(value = "/queryByPage")
     public List<Map<String,Object>> queryByPage(@RequestBody Map<String,Integer> parame) {
         List<Map<String, Object>> list = redisService.queryByPage(parame.get("pageSize"), parame.get("currectPage"));

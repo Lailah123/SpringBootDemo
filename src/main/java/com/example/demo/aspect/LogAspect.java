@@ -11,16 +11,16 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class LogAspect {
 
-    @Pointcut("@annotation(com.example.demo.annotation.Log)")
+    @Pointcut(value = "@annotation(com.example.demo.annotation.Log)")
     public void annotationPointCut() {
     }
 
-    @Before("annotationPointCut()")
+    @Before(value = "annotationPointCut()")
     public void before(JoinPoint joinPoint){
 //        System.out.println("调用前拦截");
     }
 
-    @After("annotationPointCut()")
+    @After(value = "annotationPointCut()")
     public void after(JoinPoint joinPoint){
 //        System.out.println("调用后拦截");
     }

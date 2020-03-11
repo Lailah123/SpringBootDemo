@@ -60,4 +60,8 @@ public class RedisService {
     public void editUser(String name, String passWord,Integer id) {
         redisDao.editUser(name, passWord,id);
     }
+
+    public List<com.example.demo.redisTest.entity.User> queryAll() {
+        return redisJpaDao.findAll();
+    }
 }
